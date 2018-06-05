@@ -32,6 +32,24 @@ public class OuDAO extends DAO {
         c.close();
     }
 
+    public boolean bddtrue(){
+        try {
+            Cursor c = super.getDB().query(DatabaseHandler.ou_table_name, new String[]{DatabaseHandler.nom_ou}, null, null, null, null, null);
+            c.moveToFirst();
+            Ou ou = new Ou();
+            ou.setNom_ou(c.getString(c.getColumnIndex(DatabaseHandler.nom_ou)));
+            allou.add(ou);
+            if (allou.size()==1){
+                return false;
+            }
+            else{
+                return true;
+            }
+        }catch (Exception e){
+            return false;
+        }
+    }
+
     public void setAllou(ArrayList<Ou> allOu) {
         this.allou = allOu;
     }

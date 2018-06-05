@@ -46,4 +46,8 @@ public class GroupActivity extends AppCompatActivity {
         myIntent.putExtras(extras);
         startActivity(myIntent);
     }
+
+    public void deleteGroup(View v){
+
+    }
 }

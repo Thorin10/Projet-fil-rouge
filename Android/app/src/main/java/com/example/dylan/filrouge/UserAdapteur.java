@@ -25,10 +25,10 @@ public class UserAdapteur extends ArrayAdapter<User> {
         UserAdapteur.TweetViewHolder viewHolder = (UserAdapteur.TweetViewHolder) convertView.getTag();
         if(viewHolder == null){
             viewHolder = new UserAdapteur.TweetViewHolder();
-            viewHolder.nomUser = convertView.findViewById(R.id.nomOu);
+            viewHolder.nomUser = convertView.findViewById(R.id.nomUser);
             convertView.setTag(viewHolder);
         }
-        User user= getItem(position);
+        User user = getItem(position);
         viewHolder.nomUser.setText(user.toString());
 
         return convertView;

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -22,6 +23,9 @@ public class UserActivity  extends AppCompatActivity {
         UserDAO userDAO = new UserDAO(this);
         userDAO.getAllUser(id);
         allUser = userDAO.getAllUse();
+        ListView LLContent = findViewById(R.id.tableLayout);
+        UserAdapteur adapteur= new UserAdapteur(UserActivity.this,allUser);
+        LLContent.setAdapter(adapteur);
     }
     public void ajoutUser(View v){
         Intent myIntent = new Intent(UserActivity.this,AjoutUser.class);

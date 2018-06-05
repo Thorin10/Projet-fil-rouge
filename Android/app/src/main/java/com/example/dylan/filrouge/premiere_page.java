@@ -13,7 +13,6 @@ public class premiere_page extends AppCompatActivity {
         OuDAO ouDAO = new OuDAO(this);
         GroupeDAO groupeDAO = new GroupeDAO(this);
         UserDAO userDAO = new UserDAO(this);
-
         Ou ou1 = new Ou("recherche");
         ouDAO.insertOccurence(ou1);
         Ou ou2 = new Ou("develeoppement");
@@ -30,6 +29,8 @@ public class premiere_page extends AppCompatActivity {
         userDAO.insertOccurence(user2);
         User user3 = new User("maurin","thomas","thomas.maurin@ynov.com",2);
         userDAO.insertOccurence(user3);
+        User user4 = new User("duval","thomas","thomas.duval@ynov.com",2);
+        userDAO.insertOccurence(user4);
         Intent myIntent = new Intent(premiere_page.this,MainActivity.class);
         startActivity(myIntent);
     }

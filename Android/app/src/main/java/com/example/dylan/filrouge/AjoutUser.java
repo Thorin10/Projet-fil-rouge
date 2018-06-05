@@ -14,6 +14,7 @@ public class AjoutUser extends AppCompatActivity {
     private EditText prenomUser;
     private String Usernom;
     private String Userprenom;
+    private String usermail;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,10 +23,10 @@ public class AjoutUser extends AppCompatActivity {
         id = Integer.valueOf(extras.getString("id"));
     }
 
-    public void validerGroup(View v){
+    public void validerUser(View v){
         nomUser = findViewById(R.id.edNomUser);
         Usernom = nomUser.getText().toString();
-        prenomUser = findViewById(R.id.edNomUser);
+        prenomUser = findViewById(R.id.edPrenomUser);
         Userprenom = prenomUser.getText().toString();
         UserDAO userDAO = new UserDAO(this);
         if(TextUtils.isEmpty(Usernom)) {

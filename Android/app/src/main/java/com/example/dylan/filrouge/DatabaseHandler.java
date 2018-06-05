@@ -29,7 +29,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
                     nom_user + " TEXT NOT NULL, "+
                     prenom_user + " TEXT NOT NULL, " +
                     group_id + " INTEGER NOT NULL, " +
-                    mail_user + " TEXT NOT NULL ); ";
+                    mail_user + " TEXT ); ";
     private static final String TABLE_GROUP_CREATE =
             " CREATE TABLE IF NOT EXISTS "+ group_table_name+ "( "+
                     id_group + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
@@ -62,6 +62,14 @@ public class DatabaseHandler extends SQLiteOpenHelper{
                 //Même principe que dans le onCreate pour executer des requêtes.
                 break;
         }
+    }
+
+    public void deleteUser(User user){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String i = String.valueOf(user.getId_user());
+        db.delete(user_table_name,id_user+ "?=",new String[] { i });
+        db.close();
+
     }
 
 }
